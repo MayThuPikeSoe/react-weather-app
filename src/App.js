@@ -6,28 +6,19 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather defaultCity="New York" />
+        <Weather defaultCity="Myanmar" />
 
         <footer>
-          This project was coded by{" "}
           <a
-            href="https://www.delac.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Matt Delac
-          </a>
-          and is
-          <a
-            href="https://github.com/wecodeschool/react-weather-app"
+            href="https://github.com/MayThuPikeSoe/react-weather-app"
             target="_blank"
             rel="noopener noreferrer"
           >
             open-sourced on GitHub
           </a>
-          and
+          <span> and </span>
           <a
-            href="https://suspicious-beaver-111c4d.netlify.com/"
+            href="https://sparkling-frangollo-412c37.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
           >
