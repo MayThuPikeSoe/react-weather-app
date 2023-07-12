@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
-
+import Mayimage from "../src/art3.jpg";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
@@ -15,7 +16,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      icon: "http://openweathermap.org/img/wn/10d@2x.png",
+      icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
     });
@@ -39,6 +40,10 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
+        <div className="d-flex logo-bar">
+          <img className="image-logo" src={Mayimage} alt="May logo" />
+          <h1 className="logo-title">May</h1>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
@@ -60,7 +65,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
-        {/* <WeatherForecast coordinates={weatherData.coordinates} />  */}
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
